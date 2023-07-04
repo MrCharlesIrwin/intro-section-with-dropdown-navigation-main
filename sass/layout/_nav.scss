@@ -1,0 +1,145 @@
+@use "../variables/colors" as *;
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: start;
+  margin: 3rem auto 2rem;
+  padding-inline: 2.5rem;
+  &__logo-wrapper {
+    padding-top: 0.5rem;
+
+    img {
+      width: 5.5rem;
+    }
+  }
+
+  &__buttons {
+    display: none;
+  }
+  &__crossIcon {
+    margin-left: auto;
+    width: 2rem;
+  }
+  &__buttons {
+    button {
+      background-color: inherit;
+      border: none;
+      padding: 0.5rem 1rem;
+    }
+    button:last-child {
+      border-radius: 0.4rem;
+      outline: 1px solid $MediumGray;
+      margin-left: 0.9rem;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  a {
+    color: $AlmostBlack;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.dropDown-wrapper {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: -1rem;
+    background-image: url("../../images/icon-arrow-down.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 0.6rem;
+  }
+  &:hover:after {
+    background-image: url("../../images/icon-arrow-up.svg");
+  }
+  &:hover &__dropDown {
+    display: grid;
+    &:after {
+      background-image: url("../../images/icon-arrow-up.svg");
+    }
+  }
+  div {
+    position: absolute;
+    padding-top: 1rem;
+  }
+  &__features {
+    right: 0;
+  }
+
+  &__dropDown {
+    display: none;
+    gap: 0.5rem;
+    text-align: center;
+    font-weight: 300;
+    font-size: 0.9rem;
+    background-color: white;
+    border-radius: 0.4rem;
+    padding-left: 0;
+    padding: 1rem;
+    box-shadow: 0 0 2.2rem -1rem hsla(0, 0%, 0%, 50%);
+    white-space: nowrap;
+
+    li {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 0.6rem;
+      &:before {
+        content: "";
+        height: 1rem;
+        background-repeat: no-repeat;
+        aspect-ratio: 1;
+      }
+    }
+    .todo-list:before {
+      background-image: url("../../images/icon-todo.svg");
+    }
+    .calendar:before {
+      background-image: url("../../images/icon-calendar.svg");
+    }
+    .reminder:before {
+      background-image: url("../../images/icon-reminders.svg");
+    }
+    .planning:before {
+      background-image: url("../../images/icon-planning.svg");
+    }
+  }
+  .company li {
+    display: block;
+    text-align: left;
+  }
+}
+.nav {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  nav {
+    display: block;
+  }
+  .header {
+    &__crossIcon {
+      display: none;
+    }
+    &__buttons {
+      display: block;
+      margin-left: auto;
+    }
+  }
+}

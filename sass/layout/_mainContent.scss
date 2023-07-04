@@ -1,0 +1,74 @@
+@use "../variables/colors" as *;
+.main {
+  width: 375px;
+  margin-inline: auto;
+  &__heroM {
+    display: block;
+  }
+  &__heroD {
+    display: none;
+  }
+  @media (min-width: 1000px) {
+    &__heroM {
+      display: none;
+    }
+    &__heroD {
+      display: block;
+    }
+  }
+  &__btn {
+    margin-block: 0.8rem 3rem;
+    outline: 1px solid $AlmostBlack;
+    background-color: $AlmostBlack;
+    border: none;
+    border-radius: 1rem;
+    color: $AlmostWhite;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.7em 1.3em;
+    &:hover {
+      background-color: $AlmostWhite;
+      color: $AlmostBlack;
+    }
+  }
+
+  &__imgWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+    img {
+      width: 4rem;
+    }
+  }
+}
+@media (min-width: 1000px) {
+  .main {
+    margin-top: 7rem;
+    text-align: left;
+    width: 1000px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 9rem;
+    > img {
+      object-fit: contain;
+      height: 100%;
+    }
+    h1 {
+      font-size: 4.3rem;
+      line-height: 1;
+      span {
+        display: block;
+      }
+    }
+    p {
+      font-size: 1.1rem;
+      width: 46ch;
+    }
+    &__imgWrapper {
+      margin-top: 5rem;
+      width: 85%;
+      justify-content: space-between;
+    }
+  }
+}
